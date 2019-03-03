@@ -18,7 +18,7 @@ public class UI_Manager : MonoBehaviour
         set
         {
             score = value;
-            scoreText.text = "Score: " + score;
+            scoreText.text = "score: " + score;
         }
     }
 
@@ -32,7 +32,7 @@ public class UI_Manager : MonoBehaviour
         set
         {
             lives = value;
-            livesText.text = "Lives: " + lives;
+            livesText.text = "lives: " + lives;
         }
     }
 
@@ -68,7 +68,6 @@ public class UI_Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //scoreText.text = "score: " + score;
         if (score == 5)
         {    
             winnerText.transform.position = new Vector3(rb.position.x - winnerOffsetX, rb.position.y + winnerOffsetY); //moves text to correct position
@@ -77,7 +76,6 @@ public class UI_Manager : MonoBehaviour
         }
 		
         //if all lives are lost
-        livesText.text = "lives: " + lives;
         if (lives == 0)
         {
             loserText.transform.position = new Vector3(rb.position.x - loserOffsetX, rb.position.y + loserOffsetY, loserTextZ);
