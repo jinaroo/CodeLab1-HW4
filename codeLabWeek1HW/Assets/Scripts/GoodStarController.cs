@@ -11,8 +11,11 @@ public class GoodStarController : MonoBehaviour
 //			other.gameObject.GetComponent<UI_Manager>().score++; //score goes up
 //		}
 
-		UI_Manager.instance.Score++;
+		if (other.CompareTag("Player"))
+		{
+			UI_Manager.instance.Score++;
 		
-		Destroy(gameObject);
+			Destroy(gameObject);	
+		}
 	}
 }

@@ -10,7 +10,13 @@ public class BadStarController : MonoBehaviour
 //        {
 //            other.gameObject.GetComponent<UI_Manager>().lives--; //lives go down
 //        }
-        
-        Destroy(gameObject);
+
+        if (other.CompareTag("Player"))
+        {
+            UI_Manager.instance.Lives--;
+
+            Destroy(gameObject);
+        }
+
     }
 }

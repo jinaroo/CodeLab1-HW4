@@ -7,6 +7,9 @@ public class UI_Manager : MonoBehaviour
     public static UI_Manager instance;
     
     public Rigidbody2D rb;
+    
+    //SCORE
+    public TextMesh scoreText;
     public int score = 0;
 
     public int Score
@@ -18,13 +21,20 @@ public class UI_Manager : MonoBehaviour
             scoreText.text = "Score: " + score;
         }
     }
-    
-    //ui stuff
-//    public int score = 0;
-    public TextMesh scoreText;
 
-    public int lives = 3;
+    //LIVES
     public TextMesh livesText;
+    public int lives = 3;
+
+    public int Lives
+    {
+        get { return lives; }
+        set
+        {
+            lives = value;
+            livesText.text = "Lives: " + lives;
+        }
+    }
 
     public TextMesh winnerText;
     public float winnerTextX;
@@ -63,7 +73,7 @@ public class UI_Manager : MonoBehaviour
         {    
             //winnerText.transform.position = new Vector3(rb.position.x - winnerOffsetX, rb.position.y + winnerOffsetY); //moves text to correct position
             Time.timeScale = 0; //stop time, pause game
-            Debug.Log("winner");
+            //Debug.Log("winner");
         }
 		
         //if all lives are lost
@@ -72,7 +82,7 @@ public class UI_Manager : MonoBehaviour
         {
             //loserText.transform.position = new Vector3(rb.position.x - loserOffsetX, rb.position.y + loserOffsetY, loserTextZ);
             Time.timeScale = 0;
-            Debug.Log("loser");
+            //Debug.Log("loser");
 			
         }
     }
