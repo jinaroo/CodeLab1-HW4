@@ -63,6 +63,9 @@ public class UI_Manager : MonoBehaviour
         {
             Destroy(gameObject); 
         }
+        
+        scoreText.text = "score: " + score;
+        livesText.text = "lives: " + lives;
     }
 
     // Update is called once per frame
@@ -70,7 +73,7 @@ public class UI_Manager : MonoBehaviour
     {
         if (score == 5)
         {    
-            winnerText.transform.position = new Vector3(rb.position.x - winnerOffsetX, rb.position.y + winnerOffsetY); //moves text to correct position
+            winnerText.transform.position = new Vector3(rb.position.x - winnerOffsetX, rb.position.y + winnerOffsetY, winnerTextZ); //moves text to correct position
             Time.timeScale = 0; //stop time, pause game
             //Debug.Log("winner");
         }
