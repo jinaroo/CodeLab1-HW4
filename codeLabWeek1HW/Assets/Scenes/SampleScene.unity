@@ -3034,15 +3034,15 @@ MonoBehaviour:
   winnerText: {fileID: 69556049}
   winnerTextX: 0
   winnerTextY: 0
-  winnerTextZ: 0
+  winnerTextZ: -1
   loserText: {fileID: 286148588}
   loserTextX: 0
   loserTextY: 0
-  loserTextZ: 0
-  winnerOffsetX: 0
-  winnerOffsetY: 0
-  loserOffsetX: 0
-  loserOffsetY: 0
+  loserTextZ: -1
+  winnerOffsetX: 5.5
+  winnerOffsetY: 3
+  loserOffsetX: 4
+  loserOffsetY: 3
 --- !u!4 &1813691189
 Transform:
   m_ObjectHideFlags: 0

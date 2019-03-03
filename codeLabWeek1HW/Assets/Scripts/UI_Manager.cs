@@ -71,7 +71,7 @@ public class UI_Manager : MonoBehaviour
         //scoreText.text = "score: " + score;
         if (score == 5)
         {    
-            //winnerText.transform.position = new Vector3(rb.position.x - winnerOffsetX, rb.position.y + winnerOffsetY); //moves text to correct position
+            winnerText.transform.position = new Vector3(rb.position.x - winnerOffsetX, rb.position.y + winnerOffsetY); //moves text to correct position
             Time.timeScale = 0; //stop time, pause game
             //Debug.Log("winner");
         }
@@ -80,7 +80,7 @@ public class UI_Manager : MonoBehaviour
         livesText.text = "lives: " + lives;
         if (lives == 0)
         {
-            //loserText.transform.position = new Vector3(rb.position.x - loserOffsetX, rb.position.y + loserOffsetY, loserTextZ);
+            loserText.transform.position = new Vector3(rb.position.x - loserOffsetX, rb.position.y + loserOffsetY, loserTextZ);
             Time.timeScale = 0;
             //Debug.Log("loser");
 			
