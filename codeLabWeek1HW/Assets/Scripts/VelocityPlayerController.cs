@@ -21,21 +21,21 @@ public class VelocityPlayerController : MonoBehaviour
     //left and right controls are controlled using input.getaxis (see line 29-32)
     
     //ui stuff
-    public int score = 0;
-    public TextMesh scoreText;
-
-    public int lives = 3;
-    public TextMesh livesText;
-
-    public TextMesh winnerText;
-    public float winnerTextX;
-    public float winnerTextY;
-    public float winnerTextZ;
-    
-    public TextMesh loserText;
-    public float loserTextX;
-    public float loserTextY;
-    public float loserTextZ;
+//    public int score = 0;
+//    public TextMesh scoreText;
+//
+//    public int lives = 3;
+//    public TextMesh livesText;
+//
+//    public TextMesh winnerText;
+//    public float winnerTextX;
+//    public float winnerTextY;
+//    public float winnerTextZ;
+//    
+//    public TextMesh loserText;
+//    public float loserTextX;
+//    public float loserTextY;
+//    public float loserTextZ;
     
     //for gravity while falling, i referred to: https://www.youtube.com/watch?v=7KiK0Aqtmzc
     public float fallMultiplier; //affects the gravity when the character falls after jumping
@@ -43,10 +43,10 @@ public class VelocityPlayerController : MonoBehaviour
     
     //public Vector3 playerPosition;
     //text offset
-    public float winnerOffsetX;
-    public float winnerOffsetY;
-    public float loserOffsetX;
-    public float loserOffsetY;
+//    public float winnerOffsetX;
+//    public float winnerOffsetY;
+//    public float loserOffsetX;
+//    public float loserOffsetY;
     
     // Start is called before the first frame update
     void Start()
@@ -63,23 +63,23 @@ public class VelocityPlayerController : MonoBehaviour
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
         
         //checking score
-        scoreText.text = "score: " + score;
-        if (score == 5)
-        {    
-            winnerText.transform.position = new Vector3(rb.position.x - winnerOffsetX, rb.position.y + winnerOffsetY); //moves text to correct position
-            Time.timeScale = 0; //stop time, pause game
-            Debug.Log("winner");
-        }
-		
-        //if all lives are lost
-        livesText.text = "lives: " + lives;
-        if (lives == 0)
-        {
-            loserText.transform.position = new Vector3(rb.position.x - loserOffsetX, rb.position.y + loserOffsetY, loserTextZ);
-            Time.timeScale = 0;
-            Debug.Log("loser");
-			
-        } 
+//        scoreText.text = "score: " + score;
+//        if (score == 5)
+//        {    
+//            winnerText.transform.position = new Vector3(rb.position.x - winnerOffsetX, rb.position.y + winnerOffsetY); //moves text to correct position
+//            Time.timeScale = 0; //stop time, pause game
+//            Debug.Log("winner");
+//        }
+//		
+//        //if all lives are lost
+//        livesText.text = "lives: " + lives;
+//        if (lives == 0)
+//        {
+//            loserText.transform.position = new Vector3(rb.position.x - loserOffsetX, rb.position.y + loserOffsetY, loserTextZ);
+//            Time.timeScale = 0;
+//            Debug.Log("loser");
+//			
+//        } 
     }
     
     void FixedUpdate() //contains all physics 

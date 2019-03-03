@@ -6,10 +6,10 @@ public class BadStarController : MonoBehaviour
 {
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
-        {
-            other.gameObject.GetComponent<VelocityPlayerController>().lives--; //lives go down
-        }
+//        if (other.CompareTag("Player"))
+//        {
+//            other.gameObject.GetComponent<UI_Manager>().lives--; //lives go down
+//        }
         
         Destroy(gameObject);
     }
