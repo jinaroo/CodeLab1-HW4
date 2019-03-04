@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class UI_Manager : MonoBehaviour
@@ -19,8 +21,34 @@ public class UI_Manager : MonoBehaviour
         {
             score = value;
             scoreText.text = "score: " + score;
+
+            HighScore = score;
         }
     }
+    
+    // HIGH SCORE STUFF
+    private const string FILE_HIGHSCORE = "/HighScoreFile.txt";
+    
+    private int highScore = 0;
+    public TextMesh highScoreText;
+
+    public int HighScore
+    {
+        get { return highScore; }
+        set
+        {
+            if (value > highScore)
+            {
+                highScore = value;
+                highScoreText.text = "high score: " + highScore;
+                
+                Debug.Log("Application.datapath: " + Application.dataPath);
+                string fullPathToFile = Application.dataPath + FILE_HIGHSCORE;
+                File.WriteAllText(fullPathToFile, "High Score: " + highScore);
+            }
+        }
+    }
+    // CONTINUED ON LINES 97-100
 
     //LIVES
     public TextMesh livesText;
@@ -66,11 +94,25 @@ public class UI_Manager : MonoBehaviour
         
         scoreText.text = "score: " + score;
         livesText.text = "lives: " + lives;
+        
+        // MORE HIGH SCORE STUFF
+        string highScoreFileText = File.ReadAllText(Application.dataPath + FILE_HIGHSCORE);
+        string[] scoreSplit = highScoreFileText.Split(' ');
+        int highScoreCheck;
+        if (Int32.TryParse(scoreSplit[1], out highScoreCheck))
+        {
+            Debug.Log("Application.datapath: " + Application.dataPath);
+            string fullPathToFile = Application.dataPath + FILE_HIGHSCORE;
+            File.WriteAllText(fullPathToFile, "High Score: " + highScoreCheck);
+
+            HighScore = highScoreCheck;
+            highScoreText.text = "high score: " + highScoreCheck;
+        }
     }
 
     // Update is called once per frame
     void Update()
-    {
+    {   
         if (score == 5)
         {    
             winnerText.transform.position = new Vector3(rb.position.x - winnerOffsetX, rb.position.y + winnerOffsetY, winnerTextZ); //moves text to correct position
